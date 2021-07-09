@@ -12,7 +12,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/inancgumus/screen"
 	"github.com/joho/godotenv"
 	"github.com/scylladb/termtables"
 )
@@ -74,20 +73,24 @@ func main() {
 
 	switch char {
 	case '1':
-		fmt.Println("A Key Pressed")
-		screen.Clear()
 
-		for {
-			// Moves the cursor to the top left corner of the screen
-			screen.MoveTopLeft()
+		// screen.Clear()
+		// screen.MoveTopLeft()
+		fmt.Println("fdsfs ye bastın 2 Key Pressed")
 
-			// fmt.Println(time.Now())
-			// time.Sleep(time.Second)
+		reader := bufio.NewReader(os.Stdin)
+		char, _, err := reader.ReadRune()
+
+		if err != nil {
+			fmt.Println(err)
 		}
+
+		// print out the unicode value i.e. A -> 65, a -> 97
+		fmt.Println(char)
 
 		break
 	case '2':
-		fmt.Println("2 ye bastın a Key Pressed")
+		fmt.Println("2 ye bastın 2 Key Pressed")
 
 		break
 	}
